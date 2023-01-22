@@ -33,7 +33,7 @@ plr.Chatted:Connect(function(msg)
 			elseif tonumber(FinalMsg[3]) == 2 then
 				if plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
                     local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Medium",true))()
-                    m:R15(plr)
+                    m:R6(plr)
 				elseif plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R15 then
                     local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Medium",true))()
                     m:R15(plr)
